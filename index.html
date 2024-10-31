@@ -1,0 +1,414 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cybercrime Hacking</title>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: 'Roboto', sans-serif;
+                background-color: #2D084A;
+                color: white;
+                padding: 20px;
+            }
+
+            nav {
+                position: fixed;
+                top: 0;
+                width: 100%;
+                background-color: #2D084A;
+                display: flex;
+                justify-content: space-between;
+                padding: 20px 50px;
+                z-index: 1000;
+                border-bottom: 2px solid #E91E63; /* Tambahkan border di bawah header */
+            }
+
+            nav ul {
+                display: flex;
+                list-style-type: none;
+                gap: 40px;
+            }
+
+            nav ul li a {
+                color: white;
+                text-decoration: none;
+                font-weight: 700;
+                font-size: 16px;
+            }
+
+            nav ul li a:hover {
+                color: #E91E63;
+            }
+
+            nav .logo {
+                font-size: 24px;
+                font-weight: 700;
+                color: #E91E63;
+            }
+
+            /* Section Styles */
+            section {
+                padding: 100px 0;
+                min-height: 100vh;
+                margin-bottom: 50px;
+                border-top: 5px solid rgba(255, 255, 255, 0.2); /* Border untuk memisahkan tiap section */
+            }
+
+            #home {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            #home h1 {
+                font-size: 64px;
+                font-weight: 700;
+                margin-bottom: 20px;
+            }
+
+            #home p {
+                font-size: 18px;
+                line-height: 1.6;
+                margin-bottom: 40px;
+                background: rgba(255, 255, 255, 0.1); /* Transparan */
+                padding: 20px;
+                border-radius: 20px; /* Sudut sama dengan gambar */
+                text-align: justify;
+            }
+
+            #home .buttons {
+                display: flex;
+                gap: 20px;
+            }
+
+            #home .buttons a {
+                padding: 15px 40px;
+                border-radius: 30px;
+                text-decoration: none;
+                font-size: 16px;
+                font-weight: 700;
+                transition: all 0.3s ease;
+            }
+
+            #home .more-details {
+                background-color: #E91E63;
+                color: white;
+            }
+
+            #home .more-details:hover {
+                background-color: #D81B60;
+            }
+
+            #home .view-demo {
+                border: 2px solid #ffffff;
+                background-color: transparent;
+                color: white;
+            }
+
+            #home .view-demo:hover {
+                background-color: white;
+                color: #2D084A;
+            }
+
+            #home img {
+                max-width: 600px;
+                border-radius: 20px;
+                margin-left: 40px; /* Tambahkan margin kiri untuk menggeser gambar */
+            }
+
+            #about, #case-studies, #faq {
+                color: white;
+                text-align: center;
+                padding: 100px 20px;
+                border-radius: 20px;
+            }
+
+            /* Background dengan opasitas lebih rendah untuk About */
+            #about {
+                position: relative;
+                background-color: rgba(0, 0, 0, 0.7); /* Warna latar belakang gelap untuk kontras */
+                z-index: 1;
+            }
+
+            #about::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: url('img/key.jpg') no-repeat center center/cover;
+                opacity: 0.2; /* Mengurangi opasitas gambar background */
+                z-index: -1; /* Letakkan di belakang konten */
+            }
+
+            /* Background dengan opasitas lebih rendah untuk Case Studies */
+            #case-studies {
+                position: relative;
+                background-color: rgba(0, 0, 0, 0.7); /* Warna latar belakang gelap untuk kontras */
+                z-index: 1;
+            }
+
+            #case-studies::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: url('img/Cy.jpg') no-repeat center center/cover; /* Ganti dengan path ke gambar background */
+                opacity: 0.2; /* Mengurangi opasitas gambar background */
+                z-index: -1; /* Letakkan di belakang konten */
+            }
+
+            #case-studies h2, #case-studies p {
+                color: white;
+                font-size: 38px;
+            }
+
+            #case-studies p {
+                max-width: 800px;
+                margin: 0 auto;
+                text-align: justify;
+                font-size: 18px;
+                line-height: 1.6;
+            }
+
+            .case-study {
+                background-color: rgba(255, 255, 255, 0.1);
+                padding: 20px;
+                margin: 20px 0;
+                border-radius: 10px;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                text-align: left; /* Mengatur teks menjadi rata kiri */
+            }
+
+            .case-study:hover {
+                transform: translateY(-5px); /* Slightly lifts the card */
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Adds shadow for depth */
+                background-color: rgba(255, 255, 255, 0.2); /* Lightens the background */
+            }
+
+
+            .case-study h3 {
+                font-size: 24px;
+                color: #E91E63;
+                margin-bottom: 5px; /* Jarak bawah untuk memisahkan dari paragraf */
+                text-align: center; /* Mengubah untuk rata kiri */
+                margin: 0; /* Menghilangkan margin agar lebih rapi */
+            }
+
+            .case-study p {
+                font-size: 16px;
+                line-height: 1.6;
+                color: white;
+                text-align: justify; /* Teks rata kanan-kiri */
+                margin-top: 0; /* Menghilangkan margin atas untuk menyelaraskan dengan h3 */
+                margin-bottom: 0; /* Menghilangkan margin bawah untuk menyelaraskan dengan h3 */
+                display: none;
+            }
+
+            #faq {
+        background-color: #3A0B61;
+        padding: 60px 20px;
+        border-radius: 20px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    #faq h2 {
+        font-size: 38px;
+        margin-bottom: 30px;
+        text-align: center; /* Agar teks di tengah */
+    }
+
+    .faq-item {
+        background-color: rgba(255, 255, 255, 0.1);
+        margin: 20px auto;
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: background-color 0.3s ease;
+    }
+
+    .faq-item:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .faq-item h3 {
+        color: #E91E63;
+        cursor: pointer; /* Menunjukkan bahwa h3 bisa diklik */
+    }
+
+    .faq-item p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: white; /* Warna teks untuk jawaban */
+    }
+
+
+            footer {
+                background-color: #2D084A;
+                text-align: center;
+                padding: 20px 0;
+                color: white;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <!-- Navigation -->
+        <nav>
+            <div class="logo">Argani F.W.</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#case-studies">Case Studies</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </nav>
+
+        <!-- Home Section -->
+        <section id="home">
+            <div class="text-section">
+                <h1>Cybercrime Hacking</h1>
+                <p>Aktivitas ilegal yang melibatkan eksploitasi sistem komputer, jaringan, atau perangkat untuk mendapatkan akses tidak sah, mencuri data, merusak sistem, atau melakukan tindakan kriminal lainnya.</p>
+                <div class="buttons">
+                    <a href="more-details.html" class="more-details">More details</a>
+                    <a href="view-demo.html" class="view-demo">View demo</a>
+                </div>
+            </div>
+
+            <div class="image-section">
+                <img src="img/piw.jpg" alt="Cybercrime illustration">
+            </div>
+        </section>
+        
+<!-- About Section -->
+<section id="about">
+    <h2 style="margin-bottom: 30px; font-size: 36px;">About Cybercrime Hacking</h2>
+    <p style="margin-bottom: 20px; font-size: 18px; text-align: justify;">
+        Cybercrime hacking adalah salah satu bentuk kejahatan dunia maya yang melibatkan manipulasi perangkat komputer, jaringan, atau sistem digital lainnya untuk tujuan ilegal. Pelaku hacking (hacker) dapat mencuri data pribadi, merusak sistem, atau mengambil alih perangkat untuk aktivitas kriminal lainnya. Seiring berkembangnya teknologi, serangan siber juga semakin kompleks dan sulit dideteksi. Sejarah hacking dimulai pada awal tahun 1960-an, ketika komputer mulai digunakan untuk tujuan komersial. Pada masa itu, hacker sering kali terdorong oleh rasa ingin tahu dan tantangan teknis. Namun, seiring berjalannya waktu, niat di balik hacking telah berubah, dengan munculnya berbagai motivasi seperti keuntungan finansial, aktivisme politik, atau pembalasan pribadi.
+    </p>
+    <p style="margin-bottom: 20px; font-size: 18px; text-align: justify;">
+        Penjahat siber terus mencari cara baru untuk mengeksploitasi kerentanan dalam sistem, dan ini dapat berdampak negatif pada individu maupun perusahaan. Jenis serangan cybercrime hacking meliputi:
+    </p>
+    <ul style="list-style-type: disc;margin-bottom: 20px; text-align: left; margin: 20 auto; max-width: 800px; padding-left: 20px;">
+        <li>Ransomware: Mengunci data pengguna dan meminta tebusan untuk membuka akses.</li>
+        <li>Phishing: Mencuri informasi pribadi dengan menyamar sebagai entitas terpercaya.</li>
+        <li>DDoS (Distributed Denial of Service): Mengganggu layanan dengan membanjiri server dengan trafik.</li>
+        <li>Malware: Perangkat lunak berbahaya yang merusak atau mengambil alih sistem.</li>
+        <li>SQL Injection: Menyisipkan kode berbahaya ke dalam query database untuk mencuri data.</li>
+    </ul>
+    <p style="margin-bottom: 20px; font-size: 18px; text-align: justify;">
+        Perlindungan terhadap serangan siber menjadi semakin penting, baik untuk individu maupun organisasi. Menerapkan langkah-langkah keamanan yang tepat, seperti penggunaan firewall, pembaruan perangkat lunak secara teratur, dan pelatihan karyawan tentang cara mengidentifikasi ancaman dapat membantu mengurangi risiko terkena serangan.
+    </p>
+</section>
+
+
+        <!-- Case Studies Section -->
+        <section id="case-studies">
+            <h2>Case Studies</h2>
+        
+            <div class="case-study">
+                <h3>WannaCry (2017)</h3>
+                <p>WannaCry adalah ransomware yang menyebar secara global pada tahun 2017, menyerang lebih dari 230.000 komputer di 150 negara. Serangan ini memanfaatkan kerentanan dalam sistem operasi Windows untuk mengenkripsi data pengguna, mengunci akses, dan meminta tebusan dalam bentuk Bitcoin untuk membuka akses. Microsoft kemudian merilis patch keamanan untuk mengatasi kerentanan ini, tetapi sistem yang belum diperbarui tetap menjadi target serangan.</p>
+            </div>
+            
+            <div class="case-study">
+                <h3>Equifax Data Breach (2017)</h3>
+                <p>Pada 2017, Equifax, biro kredit besar di Amerika Serikat, mengalami kebocoran data yang mengungkapkan informasi sensitif 147 juta orang, termasuk nomor Jaminan Sosial dan data pribadi lainnya. Kebocoran ini disebabkan oleh celah keamanan dalam sistem mereka, yang tidak segera diperbaiki meskipun sudah ada peringatan. Kebocoran ini menyebabkan risiko pencurian identitas bagi banyak orang, dan Equifax kemudian didenda serta diwajibkan memperkuat keamanan datanya.</p>
+            </div>
+            
+            <div class="case-study">
+                <h3>Yahoo Data Breach (2013-2014)</h3>
+                <p>Kebocoran data Yahoo yang terjadi antara 2013 dan 2014 menjadi salah satu insiden terbesar dalam sejarah, dengan sekitar 3 miliar akun pengguna yang terkena dampaknya. Serangan ini mencuri informasi pribadi, termasuk alamat email, tanggal lahir, dan pertanyaan keamanan pengguna. Kebocoran ini mengakibatkan hilangnya kepercayaan publik terhadap Yahoo dan menyebabkan perusahaan tersebut akhirnya diakuisisi oleh Verizon.</p>
+            </div>
+            
+            <div class="case-study">
+                <h3>SolarWinds Hack (2020)</h3>
+                <p>Serangan SolarWinds pada tahun 2020 adalah salah satu serangan rantai pasokan (supply chain) terbesar yang memengaruhi banyak perusahaan dan lembaga pemerintah Amerika Serikat. Peretas menyusupi pembaruan perangkat lunak Orion dari SolarWinds, yang digunakan oleh organisasi-organisasi besar. Serangan ini memungkinkan peretas untuk mengakses data sensitif dan melakukan tindakan jahat di jaringan yang terkena dampak. Insiden ini menggarisbawahi pentingnya keamanan dalam rantai pasokan perangkat lunak.</p>
+            </div>
+            
+            <div class="case-study">
+                <h3>Target Data Breach (2013)</h3>
+                <p>Pada tahun 2013, Target, salah satu pengecer terbesar di Amerika Serikat, mengalami kebocoran data yang mengungkapkan informasi kartu kredit 40 juta pelanggan. Peretas masuk ke sistem Target melalui akun vendor pihak ketiga yang memiliki akses ke jaringan Target. Insiden ini mendorong perusahaan-perusahaan besar untuk memperketat keamanan jaringan mereka dan mengawasi akses pihak ketiga dengan lebih cermat.</p>
+            </div>
+            
+            <div class="case-study">
+                <h3>Dyn DDoS Attack (2016)</h3>
+                <p>Serangan DDoS yang menargetkan penyedia layanan DNS Dyn pada 2016 menggunakan botnet Mirai yang terdiri dari ribuan perangkat Internet of Things (IoT) yang diretas. Serangan ini membanjiri server Dyn dengan lalu lintas berlebihan, mengakibatkan gangguan layanan pada banyak situs besar, termasuk Twitter, Netflix, dan Reddit. Insiden ini menunjukkan kerentanan perangkat IoT yang sering kali memiliki keamanan minimal dan menjadi target mudah bagi peretas.</p>
+            </div>            
+        </section>
+        
+        <!-- FAQ Section -->
+        <section id="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <h3> Apa itu hacking?</h3>
+                <p style="display: none;"> Hacking adalah aktivitas di mana seseorang mencoba mendapatkan akses ke sistem komputer atau jaringan tanpa izin pemiliknya.</p>
+            </div>
+            <div class="faq-item">
+                <h3> Bagaimana saya bisa melindungi diri dari serangan hacking?</h3>
+                <p style="display: none;"> Gunakan password yang kuat, hindari mengklik tautan mencurigakan, dan pastikan perangkat lunak selalu diperbarui.</p>
+            </div>
+            <div class="faq-item">
+                <h3> Apa itu ransomware?</h3>
+                <p style="display: none;"> Ransomware adalah jenis malware yang mengunci data pengguna dan meminta tebusan untuk membuka akses ke data tersebut.</p>
+            </div>
+            <div class="faq-item">
+                <h3> Apa yang harus dilakukan jika data saya dicuri?</h3>
+                <p style="display: none;"> Segera laporkan kepada pihak berwenang, ganti password untuk akun yang mungkin terpengaruh, dan pertimbangkan untuk menggunakan layanan pemantauan identitas.</p>
+            </div>
+            <div class="faq-item">
+                <h3> Bagaimana cara mengidentifikasi email phishing?</h3>
+                <p style="display: none;"> Periksa alamat pengirim, cari kesalahan tata bahasa, dan jangan klik tautan atau lampiran yang mencurigakan.</p>
+            </div>
+        </section>
+        <script>
+            // Existing script for case studies
+            document.querySelectorAll('.case-study h3').forEach(title => {
+                title.addEventListener('click', () => {
+                    const description = title.nextElementSibling;
+        
+                    if (description.style.display === 'none' || description.style.display === '') {
+                        description.style.display = 'block';
+                    } else {
+                        description.style.display = 'none';
+                    }
+                });
+            });
+        
+            // New script for FAQ section
+            document.querySelectorAll('#faq .faq-item h3').forEach(title => {
+                title.addEventListener('click', () => {
+                    const answer = title.nextElementSibling;
+        
+                    if (answer.style.display === 'none' || answer.style.display === '') {
+                        answer.style.display = 'block';
+                    } else {
+                        answer.style.display = 'none';
+                    }
+                });
+            });
+        </script>
+        
+
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2024 Arga Company. Informatiaka UHW Perbanas.</p>
+        </footer>
+
+    </body>
+    </html>
